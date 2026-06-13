@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng | KIZZTAG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://script.google.com" />
+    <link rel="preconnect" href="https://img.vietqr.io" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="cart-page">
+    <div class="page-transition-overlay" aria-hidden="true"></div>
+    <header class="site-header is-top">
+      <div class="header-shell">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="brand" href="index.html" aria-label="KIZZTAG home">KIZZTAG</a>
+        <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+          <a href="index.html" class="nav-link">TRANG CHỦ</a>
+          <a href="products.html" class="nav-link">SẢN PHẨM</a>
+          <a href="faq.html" class="nav-link">FAQ</a>
+        </nav>
+        <a class="cart-pill" href="cart.html" aria-label="Đi tới giỏ hàng">
+          <span>Cart</span>
+          <strong id="cart-count">0</strong>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-section cart-section">
+        <div class="section-heading compact">
+          <span>Cart</span>
+          <h2>Giỏ hàng của bạn</h2>
+        </div>
+
+        <div class="cart-layout">
+          <div id="cart-items" class="cart-items"></div>
+          <aside class="cart-summary" aria-label="Tóm tắt giỏ hàng">
+            <div>
+              <span class="cart-summary-label">Tạm tính:</span>
+              <strong id="cart-total">0đ</strong>
+            </div>
+            <div class="cart-summary-shipping">
+              <span class="cart-summary-label">Vận chuyển:</span>
+              <ul class="cart-shipping-note">
+                <li>Miễn phí vận chuyển nội thành TP.HCM</li>
+                <li>Ship toàn quốc 25.000đ</li>
+              </ul>
+            </div>
+            <button id="checkout-btn" class="checkout-btn" type="button">
+              THANH TOÁN
+            </button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="checkout-modal"
+      class="checkout-modal"
+      hidden
+      aria-hidden="true"
+    >
+      <div class="checkout-modal-backdrop" data-close-checkout></div>
+      <div
+        class="checkout-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="checkout-title"
+      >
+        <button
+          class="checkout-modal-close"
+          type="button"
+          data-close-checkout
+          aria-label="Đóng"
+        >
+          ×
+        </button>
+
+        <div id="checkout-form-view" class="checkout-panel">
+          <h3 id="checkout-title">Thông tin thanh toán</h3>
+          <p class="checkout-lead">
+            Điền thông tin nhận hàng, quét mã QR bên phải để chuyển khoản.
+          </p>
+
+          <div class="checkout-grid">
+            <form id="checkout-form" class="checkout-form" novalidate>
+              <div class="checkout-order-meta" aria-live="polite">
+                <span>Mã đơn hàng:</span>
+                <strong id="checkout-order-id">KZT-...</strong>
+              </div>
+              <label>
+                Tên người nhận
+                <input
+                  type="text"
+                  name="customerName"
+                  autocomplete="name"
+                  required
+                />
+              </label>
+              <label>
+                Số điện thoại
+                <input
+                  type="tel"
+                  name="customerPhone"
+                  autocomplete="tel"
+                  required
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  name="customerEmail"
+                  autocomplete="email"
+                  required
+                />
+              </label>
+
+              <fieldset class="checkout-address-fieldset">
+                <legend>Địa chỉ giao hàng</legend>
+                <label>
+                  Số nhà, tên đường
+                  <input
+                    type="text"
+                    name="addressStreet"
+                    autocomplete="address-line1"
+                    required
+                  />
+                </label>
+                <label>
+                  Phường / xã
+                  <input type="text" name="addressWard" required />
+                </label>
+                <label>
+                  Quận / huyện
+                  <input type="text" name="addressDistrict" required />
+                </label>
+                <label>
+                  Thành phố / tỉnh
+                  <input
+                    type="text"
+                    name="addressCity"
+                    autocomplete="address-level2"
+                    required
+                  />
+                </label>
+              </fieldset>
+
+              <div class="checkout-totals" aria-live="polite">
+                <div>
+                  <span>Tiền sản phẩm:</span>
+                  <strong id="checkout-subtotal">0đ</strong>
+                </div>
+                <div>
+                  <span>Phí ship:</span>
+                  <strong id="checkout-shipping">Miễn phí</strong>
+                </div>
+                <div class="checkout-total-row">
+                  <span>Tổng thanh toán:</span>
+                  <strong id="checkout-grand-total">0đ</strong>
+                </div>
+              </div>
+
+              <button class="checkout-complete-btn" type="submit">
+                HOÀN THÀNH
+              </button>
+            </form>
+
+            <aside class="checkout-qr-panel" aria-label="Mã QR thanh toán">
+              <p class="checkout-qr-title">Quét để thanh toán</p>
+              <div class="checkout-qr-scan">
+                <span class="checkout-qr-scan-line" aria-hidden="true"></span>
+                <img
+                  id="checkout-qr-img"
+                  src="https://img.vietqr.io/image/TCB-12324888888-compact2.png?addInfo=KZT&accountName=PHAM%20THAI%20THIEN%20THANH"
+                  alt="Mã QR Techcombank - PHAM THAI THIEN THANH"
+                  width="300"
+                  height="auto"
+                  decoding="sync"
+                  fetchpriority="high"
+                />
+              </div>
+              <p class="checkout-qr-hint" hidden>
+                Nội dung chuyển khoản:
+                <code id="checkout-qr-amount">0đ</code>
+              </p>
+              <p class="checkout-qr-support">
+                Nếu bạn cần hỗ trợ, liên hệ
+                <a
+                  href="https://www.instagram.com/kizz.tag/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >instargram</a
+                >
+              </p>
+            </aside>
+          </div>
+        </div>
+
+        <div id="checkout-success-view" class="checkout-success" hidden>
+          <div class="checkout-success-icon" aria-hidden="true">✓</div>
+          <h3>ĐẶT HÀNG THÀNH CÔNG</h3>
+          <p id="checkout-success-message" class="checkout-success-message">
+            Chúc bạn ngày mới vui vẻ
+          </p>
+          <button
+            id="checkout-success-close"
+            class="checkout-complete-btn"
+            type="button"
+          >
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">COPYRIGHT @ 2026 KIZZTAG</footer>
+
+    <script src="google-store-config.js" defer></script>
+    <script src="store-sync.js" defer></script>
+    <script src="email-config.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

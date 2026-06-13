@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm | KIZZTAG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://script.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-transition-overlay" aria-hidden="true"></div>
+    <header class="site-header is-top">
+      <div class="header-shell">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="brand" href="index.html" aria-label="KIZZTAG home">KIZZTAG</a>
+        <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+          <a href="index.html" class="nav-link">TRANG CHỦ</a>
+          <a href="products.html" class="nav-link active">SẢN PHẨM</a>
+          <a href="faq.html" class="nav-link">FAQ</a>
+        </nav>
+        <a class="cart-pill" href="cart.html" aria-label="Đi tới giỏ hàng">
+          <span>Cart</span>
+          <strong id="cart-count">0</strong>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-section products-section">
+        <div class="products-logo-panel">
+          <img
+            class="products-logo"
+            src="assets/3dgifmaker38026.gif"
+            onerror="this.onerror=null;this.src='assets/kizztag-logo.svg';"
+            alt="KIZZTAG logo"
+            decoding="async"
+            fetchpriority="low"
+            loading="lazy"
+          />
+        </div>
+
+        <section class="product-shop" aria-labelledby="products-title">
+          <div class="section-heading compact">
+            <span>Shop</span>
+            <h2 id="products-title">Sản phẩm KIZZTAG</h2>
+          </div>
+
+          <div id="filter-tabs" class="filter-tabs" role="tablist" aria-label="Lọc sản phẩm"></div>
+
+          <div id="product-grid" class="product-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">COPYRIGHT @ 2026 KIZZTAG</footer>
+
+    <script src="google-store-config.js" defer></script>
+    <script src="store-sync.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

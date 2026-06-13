@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | KIZZTAG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://script.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-transition-overlay" aria-hidden="true"></div>
+    <header class="site-header is-top">
+      <div class="header-shell">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="brand" href="index.html" aria-label="KIZZTAG home">KIZZTAG</a>
+        <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+          <a href="index.html" class="nav-link">TRANG CHỦ</a>
+          <a href="products.html" class="nav-link">SẢN PHẨM</a>
+          <a href="faq.html" class="nav-link active">FAQ</a>
+        </nav>
+        <a class="cart-pill" href="cart.html" aria-label="Đi tới giỏ hàng">
+          <span>Cart</span>
+          <strong id="cart-count">0</strong>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-section faq-section">
+        <div class="section-heading compact">
+          <span>FAQ</span>
+          <h2>Câu hỏi thường gặp</h2>
+          <p class="faq-intro">
+            Mọi thắc mắc về keychain handmade, giao hàng và đặt hàng tại KIZZTAG.
+          </p>
+        </div>
+
+        <div class="faq-list" aria-label="Danh sách câu hỏi thường gặp">
+          <details id="faq-about" class="faq-item">
+            <summary>KIZZTAG là gì?</summary>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                KIZZTAG là thương hiệu keychain handmade phong cách tối giản đen
+                trắng. Mỗi sản phẩm được làm thủ công nên có vân và chi tiết hơi
+                khác nhau — đó là điểm đặc trưng của đồ handmade.
+              </p>
+            </div>
+          </details>
+
+          <details id="faq-order" class="faq-item">
+            <summary>Làm sao để đặt hàng?</summary>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                Chọn sản phẩm tại trang <a href="products.html">Sản phẩm</a>, thêm
+                vào giỏ hàng, rồi bấm <strong>Thanh toán</strong> và điền thông tin
+                giao hàng. Shop sẽ liên hệ xác nhận đơn sau khi nhận thông tin.
+              </p>
+            </div>
+          </details>
+
+          <details id="faq-shipping" class="faq-item">
+            <summary>Freeship áp dụng thế nào?</summary>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                KIZZTAG miễn phí giao hàng trong nội thành
+                <strong>Hồ Chí Minh</strong>. Đơn ngoài TP.HCM phí ship
+                <strong>25.000đ</strong> (theo form thanh toán trên web).
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-cta">
+          <p>Vẫn còn thắc mắc?</p>
+          <a
+            class="shop-now-btn hero-shop-btn"
+            href="https://www.instagram.com/kizz.tag/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Liên hệ ngay</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">COPYRIGHT @ 2026 KIZZTAG</footer>
+
+    <script src="google-store-config.js" defer></script>
+    <script src="store-sync.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

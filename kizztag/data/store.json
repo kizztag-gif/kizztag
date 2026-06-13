@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-02T00:00:00.000Z",
+  "products": [
+    {
+      "id": "s1-cloud",
+      "name": "Cloud Mono Keychain",
+      "category": "Series 1",
+      "price": 89000,
+      "imagePosition": "32% 80%",
+      "stock": 5,
+      "locked": false
+    },
+    {
+      "id": "s1-heart",
+      "name": "Speckle Heart Keychain",
+      "category": "Series 1",
+      "price": 79000,
+      "imagePosition": "14% 46%",
+      "stock": 5,
+      "locked": false
+    },
+    {
+      "id": "s2-bar",
+      "name": "Black Marble Tag",
+      "category": "Series 2",
+      "price": 99000,
+      "imagePosition": "48% 48%",
+      "stock": 5,
+      "locked": false
+    },
+    {
+      "id": "s2-ring",
+      "name": "Clear Orbit Keychain",
+      "category": "Series 2",
+      "price": 109000,
+      "imagePosition": "84% 43%",
+      "stock": 5,
+      "locked": false
+    },
+    {
+      "id": "combo-duo",
+      "name": "Bestie Duo Combo",
+      "category": "Combo",
+      "price": 169000,
+      "imagePosition": "56% 72%",
+      "stock": 5,
+      "locked": false
+    },
+    {
+      "id": "combo-box",
+      "name": "Gift Box Combo",
+      "category": "Combo",
+      "price": 219000,
+      "imagePosition": "78% 16%",
+      "stock": 5,
+      "locked": false
+    }
+  ],
+  "categories": ["Series 1", "Series 2", "Combo"],
+  "testimonials": [
+    {
+      "text": "Keychain cầm rất chắc tay, màu đen trắng đúng style tối giản mình thích. Shop gói hàng kỹ, giao trong Hồ Chí Minh nhanh.",
+      "name": "Minh Anh",
+      "role": "Khách hàng Series 1",
+      "initials": "MA",
+      "imageUrl": "assets/keychain-mockup.svg"
+    },
+    {
+      "text": "Mình đặt combo làm quà sinh nhật, từng chiếc đều có vân riêng nên nhìn handmade thật chứ không bị đại trà.",
+      "name": "Gia Hân",
+      "role": "Khách hàng Combo",
+      "initials": "GH",
+      "imageUrl": "assets/keychain-mockup.svg"
+    },
+    {
+      "text": "Logo và packaging đẹp, keychain lên balo rất nổi. Mình thích nhất phần khoen đen nhìn đồng bộ với concept.",
+      "name": "Tuấn Kiệt",
+      "role": "Khách hàng Series 2",
+      "initials": "TK",
+      "imageUrl": "assets/keychain-mockup.svg"
+    }
+  ],
+  "orders": []
+}

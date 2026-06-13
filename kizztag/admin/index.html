@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard | KIZZTAG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://script.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../admin.css" />
+  </head>
+  <body>
+    <main>
+      <section id="login-screen" class="login-screen">
+        <form id="login-form" class="login-card">
+          <span>Admin</span>
+          <h1>KIZZTAG Dashboard</h1>
+          <label>
+            Tài khoản
+            <input id="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            Mật khẩu
+            <input
+              id="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <p id="login-error" class="form-error" hidden>
+            Sai tài khoản hoặc mật khẩu.
+          </p>
+          <button type="submit">Đăng nhập</button>
+        </form>
+      </section>
+
+      <section id="dashboard" class="dashboard" hidden>
+        <aside class="sidebar">
+          <a class="admin-brand" href="../index.html" aria-label="KIZZTAG">
+            KIZZTAG
+          </a>
+          <nav>
+            <a href="#overview">Tổng quan</a>
+            <a href="#categories">Danh mục</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#feedback">Feedback</a>
+          </nav>
+          <div class="sidebar-actions">
+            <p id="save-changes-status" class="save-changes-status" hidden></p>
+            <button id="save-changes-btn" type="button">Lưu thay đổi</button>
+            <button id="logout-btn" type="button" class="logout-btn">Đăng xuất</button>
+          </div>
+        </aside>
+
+        <section class="admin-main">
+          <header class="admin-topbar">
+            <div>
+              <span>Dashboard</span>
+              <h1>Quản lý KIZZTAG</h1>
+            </div>
+            <a href="../index.html">Xem cửa hàng</a>
+          </header>
+
+          <section id="overview" class="admin-section admin-view" data-title="Tổng quan">
+            <div class="stats-grid">
+              <article class="stat-card">
+                <span>Doanh thu</span>
+                <strong id="revenue-stat">0đ</strong>
+              </article>
+              <article class="stat-card">
+                <span>Đơn hàng</span>
+                <strong id="orders-stat">0</strong>
+              </article>
+              <article class="stat-card">
+                <span>Sản phẩm</span>
+                <strong id="products-stat">0</strong>
+              </article>
+              <article class="stat-card">
+                <span>Hết hàng</span>
+                <strong id="locked-stat">0</strong>
+              </article>
+            </div>
+
+            <div class="admin-panel revenue-chart-panel">
+              <div class="panel-heading">
+                <h2>Doanh thu theo ngày</h2>
+                <label class="chart-range-select">
+                  <select id="revenue-chart-range" aria-label="Số ngày hiển thị biểu đồ">
+                    <option value="7">7 ngày</option>
+                    <option value="14" selected>14 ngày</option>
+                    <option value="30">30 ngày</option>
+                  </select>
+                </label>
+              </div>
+              <p id="revenue-chart-summary" class="chart-summary"></p>
+              <div
+                id="revenue-chart"
+                class="revenue-chart"
+                aria-label="Biểu đồ doanh thu theo ngày"
+              ></div>
+            </div>
+
+            <div class="admin-panel orders-panel">
+              <div class="panel-heading">
+                <h2>Đơn hàng</h2>
+                <button id="clear-orders-btn" type="button">Xóa đơn demo</button>
+              </div>
+              <div id="orders-admin-list" class="admin-list orders-list"></div>
+            </div>
+
+          </section>
+
+          <section id="categories" class="admin-section admin-view split-section" data-title="Danh mục" hidden>
+            <form id="category-form" class="admin-panel">
+              <h2>Thêm danh mục</h2>
+              <label>
+                Tên danh mục
+                <input id="category-name" placeholder="Ví dụ: Series 3" required />
+              </label>
+              <button type="submit">Thêm danh mục</button>
+            </form>
+
+            <div class="admin-panel">
+              <h2>Danh mục hiện có</h2>
+              <p class="panel-note">Thứ tự danh mục ở đây = thứ tự tab lọc trên trang Sản phẩm. Dùng ↑ ↓ để sắp xếp.</p>
+              <div id="category-admin-list" class="admin-list"></div>
+            </div>
+          </section>
+
+          <section id="products" class="admin-section admin-view split-section" data-title="Sản phẩm" hidden>
+            <form id="product-form" class="admin-panel">
+              <h2>Thêm sản phẩm</h2>
+              <label>
+                Tên sản phẩm
+                <input id="product-name" required />
+              </label>
+              <label>
+                Danh mục
+                <select id="product-category" required></select>
+              </label>
+              <label>
+                Giá
+                <input id="product-price" type="number" min="1000" required />
+              </label>
+              <label>
+                Số lượng còn (SL)
+                <input id="product-stock" type="number" min="0" value="1" required />
+              </label>
+              <label>
+                Ảnh sản phẩm
+                <input id="product-image-file" type="file" accept="image/*" />
+                <span class="field-hint">Hoặc dùng ảnh mặc định + vị trí crop bên dưới</span>
+              </label>
+              <div id="product-image-preview" class="image-preview" hidden></div>
+              <label>
+                Vị trí ảnh nền (khi không upload ảnh riêng)
+                <input id="product-position" value="50% 50%" required />
+              </label>
+              <label class="inline-check">
+                <input id="product-locked" type="checkbox" />
+                Khóa sản phẩm / hết hàng
+              </label>
+              <button type="submit">Thêm sản phẩm</button>
+            </form>
+
+            <div class="admin-panel">
+              <h2>Danh sách sản phẩm</h2>
+              <div id="product-admin-list" class="admin-list"></div>
+            </div>
+          </section>
+
+          <section id="feedback" class="admin-section admin-view split-section" data-title="Feedback" hidden>
+            <form id="feedback-form" class="admin-panel">
+              <h2>Thêm feedback trang chủ</h2>
+              <label>
+                Tên khách
+                <input id="feedback-name" required />
+              </label>
+              <label>
+                Vai trò / đơn đã mua
+                <input id="feedback-role" required />
+              </label>
+              <label>
+                Chữ viết tắt
+                <input id="feedback-initials" maxlength="3" required />
+              </label>
+              <label>
+                Nội dung feedback
+                <textarea id="feedback-text" rows="5" required></textarea>
+              </label>
+              <label>
+                Ảnh feedback (bên phải slider)
+                <input id="feedback-image-file" type="file" accept="image/*" />
+              </label>
+              <div id="feedback-image-preview" class="image-preview" hidden></div>
+              <button type="submit">Thêm feedback</button>
+            </form>
+
+            <div class="admin-panel">
+              <h2>Feedback hiện có</h2>
+              <div id="feedback-admin-list" class="admin-list"></div>
+            </div>
+          </section>
+
+        </section>
+      </section>
+    </main>
+
+    <script src="../google-store-config.js" defer></script>
+    <script src="../store-sync.js" defer></script>
+    <script src="../admin.js" defer></script>
+  </body>
+</html>
